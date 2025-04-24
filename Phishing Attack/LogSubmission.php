@@ -1,20 +1,22 @@
 <?php
 
-    require 'database.php';
+    require 'Database.php';
 
     $ip_address = $_SERVER['REMOTE_ADDR'];
     $type = "submit";
+    $current_timestamp = date('Y-m-d H:i:s');
 
-    $statement = $mysqli->prepare("insert into requests (ip_address, type) values (?, ?)");
+    $statement = $mysqli->prepare("INSERT INTO requests (ip_address, type, timestamp) VALUES (?, ?, ?)");
 
     if (!$statement) {
-        printf("Error Preparing Query: %s\n", $mysqli->error);
+        // printf("Error Preparing Query: %s\n", $mysqli->error);
         exit;
     } else {
-        $statement->bind_param("ss", $ip_address, $type);
+        // Bind parameters: 'ss' for ip_address and type (strings), 's' for timestamp (string)
+        $statement->bind_param("sss", $ip_address, $type, $current_timestamp);
         $statement->execute();
         $statement->close();
-        printf("Query Sent Successfully!");
+        // printf("Query Sent Successfully!");
         exit;
     }
 
