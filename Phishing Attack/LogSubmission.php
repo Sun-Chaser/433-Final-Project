@@ -2,6 +2,8 @@
 
     require 'Database.php';
 
+    date_default_timezone_set("America/Chicago");
+
     $ip_address = $_SERVER['REMOTE_ADDR'];
     $type = "submit";
     $current_timestamp = date('Y-m-d H:i:s');
@@ -10,6 +12,7 @@
 
     if (!$statement) {
         // printf("Error Preparing Query: %s\n", $mysqli->error);
+        echo json_encode(array("Response" => "Error Preparing Query: " . $mysqli->error));
         exit;
     } else {
         // Bind parameters: 'ss' for ip_address and type (strings), 's' for timestamp (string)
@@ -17,6 +20,7 @@
         $statement->execute();
         $statement->close();
         // printf("Query Sent Successfully!");
+        echo json_encode(array("Response" => "Query Sent Successfully!"));
         exit;
     }
 
