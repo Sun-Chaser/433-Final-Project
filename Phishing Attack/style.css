@@ -1,0 +1,114 @@
+/* Basic reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body Styling */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    line-height: 1.6;
+    padding: 20px;
+}
+
+/* Header Styles */
+h1 {
+    color: #ff6347; /* Tomato color */
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+h2 {
+    font-size: 1.5rem;
+    color: #444;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+/* Paragraph Styles */
+p {
+    font-size: 1.1rem;
+    color: #555;
+    margin-bottom: 15px;
+}
+
+/* List Styling */
+ul {
+    list-style-type: square;
+    margin-left: 20px;
+    padding-left: 10px;
+}
+
+li {
+    font-size: 1rem;
+    margin-bottom: 10px;
+}
+
+/* Link Styles */
+a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Container for the content */
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Card Style for individual attack types */
+ul li {
+    background-color: #fafafa;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    border-left: 5px solid #ff6347;
+    transition: background-color 0.3s ease;
+}
+
+ul li:hover {
+    background-color: #f1f1f1;
+}
+
+/* Footer Styles */
+footer {
+    text-align: center;
+    margin-top: 40px;
+    font-size: 1rem;
+    color: #888;
+}
+
+/* Responsive Design for smaller screens */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2rem;
+    }
+
+    h2 {
+        font-size: 1.3rem;
+    }
+
+    p {
+        font-size: 1rem;
+    }
+
+    ul li {
+        font-size: 0.95rem;
+    }
+
+    .container {
+        padding: 15px;
+    }
+}
